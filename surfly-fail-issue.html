@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    </head>
+    <body>
+        <h3> the following component should be displayed: </h3>
+        <div class="sms-input">
+            ${content}
+            <textarea v-model="content">foo</textarea>
+        </div>
+    </body>
+</html>
+
+<script>
+    $(document).ready(function () {
+        $('.sms-input').each(function (index, elem) {
+            new Vue({
+                el: elem,
+                delimiters: ['${', '}'],
+                data: {
+                content: 'foo',
+                },
+            });
+        });
+    });
+</script>
